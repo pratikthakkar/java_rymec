@@ -2,7 +2,7 @@ trigger:
   - main  # or your branch name
 
 pool:
-  vmImage: 'ubuntu-latest'  # uses free Microsoft-hosted agent
+  name: default  # runs on your self-hosted agent
 
 steps:
   - task: Gradle@2
@@ -11,6 +11,7 @@ steps:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
       publishJUnitResults: true
+
   - task: PublishTestResults@2
     inputs:
       testResultsFiles: '**/build/test-results/test/*.xml'
