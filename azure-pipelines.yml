@@ -1,0 +1,17 @@
+trigger:
+  - main  # or your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'  # uses free Microsoft-hosted agent
+
+steps:
+  - task: Gradle@2
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      tasks: 'build'
+      publishJUnitResults: true
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/build/test-results/test/*.xml'
+      testRunTitle: 'Gradle Test Results'
