@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enter Student Marks</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Enter Student Marks</h1>
+    <form th:action="@{/submit}" th:object="${student}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required /><br/><br/>
+
+        <label for="dataScience">Data Science:</label>
+        <input type="number" id="dataScience" th:field="*{dataScience}" min="0" max="100" required /><br/><br/>
+
+        <label for="maths">Maths:</label>
+        <input type="number" id="maths" th:field="*{maths}" min="0" max="100" required /><br/><br/>
+
+        <label for="python">Python:</label>
+        <input type="number" id="python" th:field="*{python}" min="0" max="100" required /><br/><br/>
+
+        <label for="dataStructures">Data Structures:</label>
+        <input type="number" id="dataStructures" th:field="*{dataStructures}" min="0" max="100" required /><br/><br/>
+
+        <button type="submit">Submit</button>
+    </form>
+    <br/>
+    <a th:href="@{/report}">View Report</a>
+</body>
+</html>

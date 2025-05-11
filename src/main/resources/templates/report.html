@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Marks Report</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Student Marks Report</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Data Science</th>
+                <th>Maths</th>
+                <th>Python</th>
+                <th>Data Structures</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.name}">Name</td>
+                <td th:text="${student.dataScience}">Data Science</td>
+                <td th:text="${student.maths}">Maths</td>
+                <td th:text="${student.python}">Python</td>
+                <td th:text="${student.dataStructures}">Data Structures</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <a th:href="@{/form}">Add Another Student</a>
+</body>
+</html>
