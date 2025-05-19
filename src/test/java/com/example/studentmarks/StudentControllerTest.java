@@ -31,7 +31,7 @@ class StudentControllerTest {
         mockMvc.perform(get("/form"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("form"))
-                .andExpect(model().attributeExists("student"));
+                .andExpect(model().attributeExists("student1234"));
     }
 
     @Test
